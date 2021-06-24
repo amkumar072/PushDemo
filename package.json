@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:local": "ng build --prod --source-map && http-server-spa dist/PushDemo/ index.html 18080"
+    "start:local": "ng build --prod --source-map && http-server-spa dist/PushDemo/ index.html 18080",
+    "deploy": "ng build --prod && firebase deploy --only hosting:test-push-notifi"
   },
   "private": true,
   "dependencies": {
