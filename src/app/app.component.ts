@@ -12,16 +12,26 @@ import { SwUpdate, SwPush } from '@angular/service-worker';
   </button>
   <br/>
   Device token: {{displayToken}}
+
+  <br/>
+  Display message : {{displaymessage | json}}
   `
 })
 export class AppComponent {
   displayToken: string;
+  displaymessage: any;
+
+
   constructor(updates: SwUpdate, push: SwPush) {
     updates.available.subscribe(_ => updates.activateUpdate().then(() => {
       console.log('reload for update');
       document.location.reload();
     }));
-    push.messages.subscribe(msg => console.log('push message', msg));
+    push.messages.subscribe(msg => {
+      console.log('push message', msg);
+
+      this.displaymessage = msg;
+    });
     push.notificationClicks.subscribe(click => console.log('notification click', click));
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebase);
