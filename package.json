@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start:local": "ng build --prod --source-map && http-server-spa dist/PushDemo/ index.html 18080"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +23,7 @@
     "@angular/pwa": "^0.803.14",
     "@angular/router": "~8.2.11",
     "@angular/service-worker": "~8.2.11",
-    "firebase": "^7.2.1",
+    "firebase": "^7.24.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
